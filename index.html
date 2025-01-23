@@ -5,482 +5,221 @@
    <meta charset="UTF-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <title>NCIX Store</title>
+   <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
    <style>
       @font-face {
          font-family: 'Poppins';
          src: url('fonts/Poppins-Regular.ttf') format('truetype'),
-               url('fonts/Poppins-Regular.woff2') format('woff2'),
-               url('fonts/Poppins-Regular.woff') format('woff');
+            url('fonts/Poppins-Regular.woff2') format('woff2'),
+            url('fonts/Poppins-Regular.woff') format('woff');
          font-weight: normal;
          font-style: normal;
       }
 
-      /* General Styling */
       body {
-         margin: 0;
-         /* font-family: Arial, Helvetica, sans-serif; */
          font-family: Poppins, sans-serif;
-         background-color: #f8f9fa;
-      }
-
-      table {
-         width: 100%;
-         border-collapse: collapse;
-      }
-
-      td {
-         padding: 15px;
-         vertical-align: middle;
-         text-align: center;
-      }
-
-      /* Header Styling */
-      .header {
-         background-image: url(images/banner.jpg);
-         color: #fff;
-         text-align: center;
-         font-size: 16px;
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         padding: 10px 20px;
-      }
-
-      .logo {
-         font-size: 28px;
-         font-weight: bold;
-         padding-left: 20px;
-      }
-
-      .header-nav a {
-         color: #fff;
-         text-decoration: none;
-         font-weight: bold;
-         font-size: 16px;
-         padding: 10px 15px;
-         display: inline-block;
-      }
-
-      .header-nav a:hover {
-         color: #00ff00;
-      }
-
-
-      /* Banner Styling */
-      .banner {
-         background-image: url(images/banner.jpg);
-         background-size: cover;
-         background-position: center;
-         color: white;
-         display: flex;
-         justify-content: space-between;
-         padding: 50px 20px;
-         align-items: center;
-      }
-
-      .banner-content {
-         max-width: 50%;
-      }
-
-      .banner-content h2 {
-         font-size: 36px;
-         margin-bottom: 10px;
-      }
-
-      .banner-content p {
-         font-size: 16px;
-         margin-bottom: 20px;
-      }
-
-      .buttons {
-         display: inline-block;
-         padding: 10px 20px;
-         border: 2px solid #fff;
-         color: #fff;
-         text-decoration: none;
-         border-radius: 4px;
-         font-weight: bold;
-         margin-right: 10px;
-      }
-
-      .buttons:hover {
-         background-color: #fff;
-         color: #4b2f92;
-      }
-
-      .banner-image img {
-         width: 100%;
-         max-width: 600px;
-         display: block;
-      }
-
-      /* Three Box Section */
-      .three-box {
-         display: flex;
-         justify-content: center;
-         text-align: center;
-         padding: 20px 0;
-      }
-
-      .three-box img {
-         max-width: 100px;
-         height: auto;
-         display: block;
-         margin: 0 auto;
-      }
-
-      .three-box h3 {
-         margin: 10px 0;
-      }
-
-      .three-box p {
-         margin-top: 0;
-      }
-
-      /* Section Title Styling */
-      .section-title {
-         font-size: 20px;
-         font-weight: bold;
-         text-decoration: underline;
-         text-align: center;
-         margin: 20px 0;
-         color: black;
-      }
-
-      /* Products Section */
-      .products {
-         display: flex;
-         justify-content: space-around;
-         margin: 20px 0;
-      }
-
-      .products td {
-         padding: 20px;
-         text-align: center;
-         flex: 1;
-      }
-
-      .products img {
-         max-width: 150px;
-         height: auto;
-         margin-bottom: 10px;
-      }
-
-      .see-more {
-         border: 2px solid black;
-         color: black;
-      }
-
-      .see-more:hover {
-         background-color: black;
-         color: white;
-      }
-
-      /* Discount Section */
-      .discount {
-         background-color: #4f4aa6;
-         text-align: center;
-         padding: 40px 0;
-         display: flex;
-         justify-content: space-around;
-         align-items: center;
-      }
-
-      .discount h2 {
-         color: white;
-         font-size: 24px;
-      }
-
-      .discount .buttons {
-         margin-top: 20px;
-      }
-
-      .discount img {
-         max-width: 500px;
-         height: auto;
-      }
-
-      /* Customer Review Section */
-      .review {
-         padding: 40px 0;
-         background-color: #f8f9fa;
-         display: flex;
-         justify-content: center;
-      }
-
-      .review-content {
-         width: 50%;
-         padding: 10px 20px;
-         background-color: #fff;
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-         border-radius: 8px;
-         text-align: left;
-         margin: 20px auto;
-      }
-
-      .review-content h4 {
-         font-size: 24px;
-         margin-bottom: 10px;
-      }
-
-      .review-content p {
-         font-size: 16px;
-      }
-
-      /* Footer Styling */
-      .footer {
-         background-color: #292c30;
-         padding: 40px 0;
-      }
-
-      .footer td {
-         color: white;
-      }
-
-      .footer-logo {
-         font-size: 28px;
-         font-weight: bold;
-         margin-bottom: 20px;
-      }
-
-      .social-icons {
-         display: flex;
-         gap: 20px;
-         margin-bottom: 20px;
-         justify-content: center;
-      }
-
-      .social-icons a {
-         display: inline-block;
-      }
-
-      .social-icons img {
-         width: 30px;
-         height: auto;
-         transition: opacity 0.3s;
-      }
-
-      .social-icons a:hover img {
-         opacity: 0.7;
-      }
-
-      .newsletter-form h3 {
-         margin-bottom: 10px;
-      }
-
-      .newsletter-form input {
-         padding: 10px;
-         margin-right: 10px;
-         border-radius: 4px;
-         border: 1px solid #ccc;
-         width: 200px;
-      }
-
-      .newsletter-form button {
-         padding: 10px 20px;
-         background-color: #4b2f92;
-         color: white;
-         border: none;
-         border-radius: 4px;
-         font-weight: bold;
-         cursor: pointer;
-      }
-
-      .newsletter-form button:hover {
-         background-color: #00ff00;
       }
    </style>
 </head>
 
 <body>
-   <table>
-      <!-- Header -->
-      <tr class="header">
-         <td class="logo">NCIX</td>
-         <td class="header-nav">
-            <a href="index.html">Home</a>
-            <a href="products.html">Products</a>
-            <a href="login.html">Login</a>
-            <a href="help.html">Help</a>
-            <a href="about.html">About</a>
-         </td>
-      </tr>
+   <!-- Header -->
+   <header class="navbar navbar-expand-lg navbar-dark bg-dark py-3 position-sticky top-0">
+      <div class="container">
+         <a class="navbar-brand fw-bold" href="#">NCIX</a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+               <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+               <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+               <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+               <li class="nav-item"><a class="nav-link" href="help.html">Help</a></li>
+               <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            </ul>
+         </div>
+      </div>
+   </header>
 
-      <!-- Banner -->
-      <tr class="banner">
-         <td colspan="2" class="banner-content">
-            <h2>Computer Laptop And More</h2>
-            <p>
-               Discover the latest and greatest in computers, laptops, tablets, and
-               more. We offer unbeatable prices and fast shipping.
-            </p>
-            <a class="buttons" href="login.html">Buy Now</a>
-            <a class="buttons" href="about.html">About</a>
-         </td>
-         <td class="banner-image">
-            <img src="images/pct.png" alt="Product Image" />
-         </td>
-      </tr>
+   <!-- Banner -->
+   <section class="bg-dark text-light py-5"
+      style="background-image: url('images/banner.jpg'); background-size: cover; background-position: center;">
+      <div class="container text-center">
+         <div class="row align-items-center">
+            <div class="col-md-6">
+               <h2 class="display-4">Computer Laptop And More</h2>
+               <p class="lead">Discover the latest and greatest in computers, laptops, tablets, and more. We offer
+                  unbeatable prices and fast shipping.</p>
+               <a href="login.html" class="btn btn-outline-light me-2">Buy Now</a>
+               <a href="about.html" class="btn btn-light">About</a>
+            </div>
+            <div class="col-md-6">
+               <img src="images/pct.png" alt="Product Image" class="img-fluid">
+            </div>
+         </div>
+      </div>
+   </section>
 
-      <!-- Three Box Section -->
-      <tr class="three-box">
-         <td>
-            <img src="images/thr.png" alt="Computer Icon" />
-            <h3>Computer</h3>
-            <p>Explore our wide range of computers with the latest technology.</p>
-         </td>
-         <td>
-            <img src="images/thr1.png" alt="Laptop Icon" />
-            <h3>Laptop</h3>
-            <p>
-               Find the best laptops for your needs, from gaming to productivity.
-            </p>
-         </td>
-         <td>
-            <img src="images/thr2.png" alt="Tablet Icon" />
-            <h3>Tablet</h3>
-            <p>
-               Discover versatile tablets for work, play, and everything in
-               between.
-            </p>
-         </td>
-      </tr>
+   <!-- Three Box Section -->
+   <section class="py-5">
+      <div class="container">
+         <div class="row text-center">
+            <div class="col-md-4">
+               <img src="images/thr.png" alt="Computer Icon" class="mb-3" style="max-width: 100px;">
+               <h3>Computer</h3>
+               <p>Explore our wide range of computers with the latest technology.</p>
+            </div>
+            <div class="col-md-4">
+               <img src="images/thr1.png" alt="Laptop Icon" class="mb-3" style="max-width: 100px;">
+               <h3>Laptop</h3>
+               <p>Find the best laptops for your needs, from gaming to productivity.</p>
+            </div>
+            <div class="col-md-4">
+               <img src="images/thr2.png" alt="Tablet Icon" class="mb-3" style="max-width: 100px;">
+               <h3>Tablet</h3>
+               <p>Discover versatile tablets for work, play, and everything in between.</p>
+            </div>
+         </div>
+      </div>
+   </section>
 
-      <!-- Products Section -->
-      <tr>
-         <td colspan="9" class="section-title">
-            <h2>OUR PRODUCTS</h2>
-         </td>
-      </tr>
-      <tr class="products">
-         <td>
-            <img src="images/keyboard.png" alt="Keyboard" />
-            <h3>Keyboard</h3>
-         </td>
-         <td>
-            <img src="images/mouse.png" alt="Mouse" />
-            <h3>Mouse</h3>
-         </td>
-         <td>
-            <img src="images/webcam.png" alt="Webcam" />
-            <h3>Webcam</h3>
-         </td>
-      </tr>
-      <tr class="products">
-         <td>
-            <img src="images/speaker.png" alt="Speakers" />
-            <h3>Speakers</h3>
-         </td>
-         <td>
-            <img src="images/ram.png" alt="Ram" />
-            <h3>Ram</h3>
-         </td>
-         <td>
-            <img src="images/harddisk.png" alt="Harddisk" />
-            <h3>Harddisk</h3>
-         </td>
-      </tr>
-      <tr>
-         <td><a class="see-more buttons" href="products.html">See More</a></td>
-      </tr>
+   <!-- Products Section -->
+   <section class="py-5 bg-light">
+      <div class="container">
+         <h2 class="text-center mb-4">OUR PRODUCTS</h2>
+         <div class="row text-center">
+            <div class="col-md-4">
+               <img src="images/keyboard.png" alt="Keyboard" class="img-fluid mb-3" style="max-width: 150px;">
+               <h3>Keyboard</h3>
+            </div>
+            <div class="col-md-4">
+               <img src="images/mouse.png" alt="Mouse" class="img-fluid mb-3" style="max-width: 150px;">
+               <h3>Mouse</h3>
+            </div>
+            <div class="col-md-4">
+               <img src="images/webcam.png" alt="Webcam" class="img-fluid mb-3" style="max-width: 150px;">
+               <h3>Webcam</h3>
+            </div>
+         </div>
+         <div class="row text-center mt-4">
+            <div class="col-md-4">
+               <img src="images/speaker.png" alt="Speakers" class="img-fluid mb-3" style="max-width: 150px;">
+               <h3>Speakers</h3>
+            </div>
+            <div class="col-md-4">
+               <img src="images/ram.png" alt="Ram" class="img-fluid mb-3" style="max-width: 150px;">
+               <h3>Ram</h3>
+            </div>
+            <div class="col-md-4">
+               <img src="images/harddisk.png" alt="Harddisk" class="img-fluid mb-3" style="max-width: 150px;">
+               <h3>Harddisk</h3>
+            </div>
+         </div>
+         <div class="text-center mt-4">
+            <a href="products.html" class="btn btn-dark">See More</a>
+         </div>
+      </div>
+   </section>
+   <!-- Discount Section -->
+   <div class="discount row text-center align-items-center bg-primary text-white py-5">
+      <div class="col-md-6">
+         <h2>Every Computer and Laptop</h2>
+         <h2>Up to 40% off!</h2>
+         <a class="btn btn-outline-light mt-3" href="login.html">Shop Now</a>
+      </div>
+      <div class="col-md-6">
+         <img src="images/pc.png" alt="Discount Image" class="img-fluid" />
+      </div>
+   </div>
+   <!-- Customer Review Section -->
+   <div class="customer-reviews py-5">
+      <div class="section-title text-center mb-4">
+         <h2>CUSTOMER REVIEWS</h2>
+      </div>
 
-      <!-- Discount Section -->
-      <tr class="discount">
-         <td>
-            <h2>Every Computer and laptop</h2>
-            <h2>Up to 40% off!</h2>
-            <a class="buttons" href="login.html">Shop Now</a>
-         </td>
-         <td>
-            <img src="images/pc.png" alt="Discount Image" />
-         </td>
-      </tr>
+      <div class="container">
+         <div class="row justify-content-center">
+            <div class="col-md-4 mb-4">
+               <div class="card p-3 shadow-sm h-100"> <!-- Tambahkan h-100 untuk memastikan kartu mengisi tinggi -->
+                  <img src="images/cos.png" alt="#" class="card-img-top w-25 mx-auto" />
+                  <div class="card-body">
+                     <h4 class="card-title">Sandy Miller</h4>
+                     <p class="card-text">
+                        Absolutely loved my experience with NCIX! Their customer service was amazing, and I received my
+                        order faster than expected. The laptop I purchased works like a charm and is exactly what I
+                        needed for both work and leisure. Highly recommend!
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-4 mb-4">
+               <div class="card p-3 shadow-sm h-100"> <!-- Tambahkan h-100 untuk memastikan kartu mengisi tinggi -->
+                  <img src="images/cos.png" alt="#" class="card-img-top w-25 mx-auto" />
+                  <div class="card-body">
+                     <h4 class="card-title">John Doe</h4>
+                     <p class="card-text">
+                        As a gamer, finding the right equipment is essential, and NCIX delivered! I bought a new gaming
+                        PC, and it performs beyond expectations. The build quality is top-notch, and the graphics are
+                        stunning. I'm very satisfied with my purchase and will be coming back for more!
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-4 mb-4">
+               <div class="card p-3 shadow-sm h-100"> <!-- Tambahkan h-100 untuk memastikan kartu mengisi tinggi -->
+                  <img src="images/cos.png" alt="#" class="card-img-top w-25 mx-auto" />
+                  <div class="card-body">
+                     <h4 class="card-title">Amy Smith</h4>
+                     <p class="card-text">
+                        NCIX has a great selection of electronics at competitive prices. I bought a tablet and am
+                        extremely pleased with the performance. It's lightweight, easy to use, and perfect for both work
+                        and entertainment. The website was easy to navigate, and the shipping was quick!
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
 
-      <!-- Customer Review Section -->
-      <tr>
-         <td colspan="9" class="section-title">
-            <h2>CUSTOMER</h2>
-         </td>
-      </tr>
+   <!-- Footer -->
+   <footer class="footer bg-dark text-white py-5">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-4 text-center mb-4">
+               <h2 class="footer-logo">NCIX</h2>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+               <div class="social-icons d-flex justify-content-center">
+                  <a href="#" class="me-3">
+                     <img src="icon/facebook.png" alt="Facebook" class="img-fluid" />
+                  </a>
+                  <a href="#" class="me-3">
+                     <img src="icon/twitter.png" alt="Twitter" class="img-fluid" />
+                  </a>
+                  <a href="#" class="me-3">
+                     <img src="icon/linkedin.png" alt="LinkedIn" class="img-fluid" />
+                  </a>
+                  <a href="#">
+                     <img src="icon/instagram.png" alt="Instagram" class="img-fluid" />
+                  </a>
+               </div>
+            </div>
+            <div class="col-md-4 text-center">
+               <div class="newsletter-form">
+                  <h3>Newsletter</h3>
+                  <form class="d-flex justify-content-center">
+                     <input type="text" class="form-control me-2" placeholder="Enter your email" />
+                     <button class="btn btn-success">Subscribe</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
 
-      <tr class="review">
-         <td colspan="2"></td>
-         <td class="review-content">
-            <i><img src="images/cos.png" alt="#" /></i>
-            <h4>Sandy Miller</h4>
-            <p>
-               Absolutely loved my experience with NCIX! Their customer service was
-               amazing, and I received my order faster than expected. The laptop I
-               purchased works like a charm and is exactly what I needed for both
-               work and leisure. Highly recommend!
-            </p>
-         </td>
-      </tr>
-
-      <tr class="review">
-         <td colspan="2"></td>
-         <td class="review-content">
-            <i><img src="images/cos.png" alt="#" /></i>
-            <h4>John Doe</h4>
-            <p>
-               As a gamer, finding the right equipment is essential, and NCIX
-               delivered! I bought a new gaming PC, and it performs beyond
-               expectations. The build quality is top-notch, and the graphics are
-               stunning. I'm very satisfied with my purchase and will be coming
-               back for more!
-            </p>
-         </td>
-      </tr>
-
-      <tr class="review">
-         <td colspan="2"></td>
-         <td class="review-content">
-            <i><img src="images/cos.png" alt="#" /></i>
-            <h4>Amy Smith</h4>
-            <p>
-               NCIX has a great selection of electronics at competitive prices. I
-               bought a tablet and am extremely pleased with the performance. It's
-               lightweight, easy to use, and perfect for both work and
-               entertainment. The website was easy to navigate, and the shipping
-               was quick!
-            </p>
-         </td>
-      </tr>
-
-      <!-- Footer -->
-      <tr class="footer">
-         <td>
-            <table>
-               <tr>
-                  <td class="footer-logo">NCIX</td>
-               </tr>
-               <tr>
-                  <td class="social-icons">
-                     <a href="#" class="facebook">
-                        <img src="icon/facebook.png" alt="Facebook" />
-                     </a>
-                     <a href="#" class="twitter">
-                        <img src="icon/twitter.png" alt="Twitter" />
-                     </a>
-                     <a href="#" class="linkedin">
-                        <img src="icon/linkedin.png" alt="LinkedIn" />
-                     </a>
-                     <a href="#" class="instagram">
-                        <img src="icon/instagram.png" alt="Instagram" />
-                     </a>
-                  </td>
-               </tr>
-               <tr>
-                  <td class="newsletter-form">
-                     <h3>Newsletter</h3>
-                     <input class="enter" placeholder="Enter your email" type="text" name="Enter your email" />
-                     <button class="sub_btn">Subscribe</button>
-                  </td>
-               </tr>
-            </table>
-         </td>
-      </tr>
-   </table>
+   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
